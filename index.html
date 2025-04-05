@@ -33,6 +33,13 @@
    <link rel="stylesheet" href="assets/css/light-mode.css" />
    <link rel="stylesheet" href="assets/css/responsive.css" />
    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+   <!-- Odometer CDN -->
+   <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/themes/odometer-theme-default.min.css" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js"></script>
 
    <style>
       .social-icons a {
@@ -130,7 +137,7 @@
 
                <div class="header-info-list d-md-inline-block">
                   <ul class="ul-reset">
-                     <li><a href="mailto:cdynjm@gmail.com">JEM CDYN</a></li>
+                     <li><a href="mailto:cdynjm@gmail.com"><b>JEM CDYN</b></a></li>
                   </ul>
                </div>
 
@@ -138,7 +145,7 @@
                   <nav>
                      <ul>
                         <li><a class="text-dark fw-bold" href="#intro">About Me</a></li>
-                        <li><a class="text-dark" href="#skills-section">Tech Stacks</a></li>
+                        <li><a class="text-dark" href="#skills-section">Skills</a></li>
                         <li><a class="text-dark" href="#works-section">Projects</a></li>
                         <li><a class="text-dark" href="#commission-section">Commissions</a></li>
                         <li><a class="text-dark" href="#services-section">Services</a></li>
@@ -177,7 +184,7 @@
 
                <div class="header-info-list d-md-inline-block">
                   <ul class="ul-reset">
-                     <li><a href="mailto:cdynjm@gmail.com">JEM CDYN</a></li>
+                     <li><a href="mailto:cdynjm@gmail.com"><b>JEM CDYN</b></a></li>
                   </ul>
                </div>
 
@@ -185,7 +192,7 @@
                   <nav>
                      <ul>
                         <li><a class="text-dark fw-bold" href="#intro">About Me</a></li>
-                        <li><a class="text-dark" href="#skills-section">Tech Stacks</a></li>
+                        <li><a class="text-dark" href="#skills-section">Skills</a></li>
                         <li><a class="text-dark" href="#works-section">Projects</a></li>
                         <li><a class="text-dark" href="#commission-section">Commissions</a></li>
                         <li><a class="text-dark" href="#services-section">Services</a></li>
@@ -216,7 +223,7 @@
    <main class="site-content" id="content">
       <!-- HERO SECTION START -->
       <section class="hero-section d-flex align-items-center" id="intro">
-         <div class="intro_text">
+         <div class="intro_text mt-5">
             <svg viewBox="0 0 1320 300">
                <text x="50%" Y="50%" text-anchor="middle">JEM CDYN</text>
             </svg>
@@ -225,38 +232,87 @@
             <div class="row align-items-center">
                <div class="col-md-6">
                   <div class="hero-content-box">
-                     <span class="hero-sub-title text-center wow fadeInRight" data-wow-delay="0.5s"
-                        style="font-size: 18px;">Jemuel Cadayona</span>
-                     <h2 class="text-center mb-0 wow fadeInLeft" data-wow-delay="0.5s">Software Dev.</h2>
-                     <center><small class="m-1 wow fadeInLeft fw-bolder" data-wow-delay="0.5s"><span class="fw-bolder">@
-                              Provincial Systems AO | </span><small class="fw-normal ms-1">Home-Based</small></small>
+                     <span class="hero-sub-title text-center wow fadeInRight text-secondary" data-wow-delay="0.5s"
+                        style="font-size: 13px;">HEY! I AM</span>
+                     <h3 class="text-center mb-0 wow fadeInLeft" data-wow-delay="0.5s" style="font-size: 27px;">JEMUEL
+                        CADAYONA</h3>
+                     <center>
+                        <small id="typewriter" class="m-1 wow fadeInLeft fw-bolder" data-wow-delay="0.5s"
+                           style="color: rgb(80, 163, 147);">
+                           <span class="fw-bolder"></span>
+                        </small>
+                        <div class="mt-0 animated-arrow">
+                           <iconify-icon icon="solar:arrow-down-line-duotone" width="24" height="24"></iconify-icon>
+                        </div>
+
+                        <!-- CSS Animation -->
+                        <style>
+                           .animated-arrow {
+                              animation: bounceDown 1.2s infinite ease-in-out;
+                              display: block;
+                           }
+
+                           @keyframes bounceDown {
+
+                              0%,
+                              100% {
+                                 transform: translateY(0);
+                              }
+
+                              50% {
+                                 transform: translateY(10px);
+                              }
+                           }
+                        </style>
                      </center>
-                     <hr class="horizontal dark m-3">
+                     <script>
+                        document.addEventListener("DOMContentLoaded", () => {
+                           const texts = ["SOFTWARE DEVELOPER", "SOFTWARE ENGINEER"];
+                           const element = document.querySelector("#typewriter span");
+                           let textIndex = 0;
+                           let charIndex = 0;
+
+                           function typeWriter() {
+                              if (charIndex < texts[textIndex].length) {
+                                 element.textContent += texts[textIndex].charAt(charIndex);
+                                 charIndex++;
+                                 setTimeout(typeWriter, 150); // typing speed
+                              } else {
+                                 setTimeout(eraseText, 2000); // wait before erasing
+                              }
+                           }
+
+                           function eraseText() {
+                              if (charIndex > 0) {
+                                 element.textContent = texts[textIndex].substring(0, charIndex - 1);
+                                 charIndex--;
+                                 setTimeout(eraseText, 100); // erasing speed
+                              } else {
+                                 textIndex = (textIndex + 1) % texts.length;
+                                 setTimeout(typeWriter, 500); // pause before typing next
+                              }
+                           }
+
+                           typeWriter();
+                        });
+                     </script>
+
+
+                     <hr class="horizontal dark m-3 mt-2">
                      <div class="mb-4 d-md-none text-center">
                         <img draggable="false" src="assets/img/hero/me.png" style="width: 80%;" alt="" />
                      </div>
 
-                     <center><a href="#commission-section"
-                           class="btn btn-sm text-center btn-success rounded-pill mb-4 wow fadeInUp"
-                           data-wow-delay="0.5s" style="display: inline-flex; align-items: center;">
-                           <span style="margin-right: 5px;">
-                              <lord-icon src="https://cdn.lordicon.com/qnwzeeae.json" trigger="loop" delay="500"
-                                 style="width:25px;height:25px">
-                              </lord-icon>
-                           </span>
-                           <span>Project Commission</span>
-                        </a>
-                     </center>
 
                      <p class="text-center" style="font-size: 14px;">
-                        Hi, I'm Jem! A self-taught software developer - consultant at the PSAO, Provincial
-                        Capitol of Southern Leyte. </p>
+                        Self-taught software developer and consultant at the Provincial Systems AO, Capitol Site,
+                        Southern Leyte, PH. Graduated Cum Laude with a degree in BS Information Technology.</p>
                      <br>
 
                      <div class="row ">
                         <div class="col-md-6 text-center mb-4">
-                           <a href="assets/resume/Cadayona Resume.pdf" class="btn tj-btn-primary text-center"
-                              target="_blank">Resume <i class="fa-solid fa-file-pdf ms-2"></i></a>
+                           <a href="assets/resume/Cadayona Resume.pdf" class="btn tj-btn-primary btn-sm text-center"
+                              target="_blank"><small>Download CV</small> <i class="fa-solid fa-file-pdf ms-2"></i></a>
                         </div>
                         <div class="col-md-6 text-center">
                            <div class="social-icons d-flex flex-wrap justify-content-center mt-2">
@@ -285,47 +341,86 @@
                   </div>
                </div>
                <div class="col-md-6 d-none d-md-block">
-                  <div class="mb-5 text-center">
+                  <div class="mb-0 text-center">
                      <img draggable="false" src="assets/img/hero/me.png" style="width: 80%;" alt="" />
                      <hr>
                   </div>
                </div>
             </div>
 
-            <div class="funfact-area">
-               <div class="row justify-content-center">
-                  <div class="col-6 col-lg-3">
-                     <div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
-                        <div class="number text-primary"><span class="odometer" data-count="3">3</span></div>
-                        <div class="text-primary text-center">Yrs. Software <br />Dev Experience</div>
-                     </div>
-                  </div>
-                  <div class="col-6 col-lg-3">
-                     <div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
-                        <div class="number text-danger"><span class="odometer" data-count="3">3</span></div>
-                        <div class="text-danger text-center">Yrs. Backend Dev <br /> Experience</div>
-                     </div>
-                  </div>
+            <!-- Animate.css CDN -->
 
-                  <div class="col-6 col-lg-3">
-                     <div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
-                        <div class="number text-success"><span class="odometer" data-count="15">15</span>+</div>
-                        <div class="text-success text-center">Projects <br />Completed</div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+
+            <!-- Custom Styles -->
+            <style>
+               .funfact-area {
+                  padding: 60px 0;
+                  background: #f7f9fc;
+               }
+
+               .funfact-item {
+                  background: #ffffff;
+                  border-radius: 16px;
+                  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+                  padding: 40px 30px;
+                  transition: transform 0.3s ease;
+                  text-align: center;
+                  min-height: 180px;
+               }
+
+               .funfact-item:hover {
+                  transform: translateY(-10px);
+               }
+
+               .funfact-item .number {
+                  font-size: 3rem;
+                  font-weight: bold;
+                  line-height: 1;
+               }
+
+               .funfact-item .text-center {
+                  font-size: 1.25rem;
+                  font-weight: 600;
+                  margin-top: 10px;
+               }
+            </style>
+
+
+            <!-- Trigger Animation on Scroll -->
+            <script>
+               document.addEventListener("DOMContentLoaded", () => {
+                  const exp = document.getElementById('exp');
+                  const proj = document.getElementById('proj');
+
+                  const options = {
+                     threshold: 0.5
+                  };
+
+                  const observer = new IntersectionObserver((entries) => {
+                     entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                           exp.innerHTML = exp.getAttribute('data-count');
+                           proj.innerHTML = proj.getAttribute('data-count');
+                           observer.disconnect();
+                        }
+                     });
+                  }, options);
+
+                  observer.observe(document.querySelector('.funfact-area'));
+               });
+            </script>
+
          </div>
       </section>
       <!-- HERO SECTION END -->
 
       <!-- SKILLS SECTION START -->
-      <section class="skills-section" id="skills-section">
+      <section class="skills-section" id="skills-section" style="margin-top: -50px">
          <div class="container">
             <div class="row">
                <div class="col-md-12">
                   <div class="section-header text-center">
-                     <h4 class="section-title wow fadeInUp" data-wow-delay=".3s">Tech Stacks</h4>
+                     <h4 class="section-title wow fadeInUp" data-wow-delay=".3s">Skills</h4>
                      <p class="wow fadeInUp" data-wow-delay=".4s">
                         Here are the technologies, libraries, and frameworks I'm currently using and studying
                      </p>
@@ -1147,11 +1242,19 @@
                         <div class="institute">Home-Based</div>
                         <br>
                         <small>
-                           The Capitol Site of Southern Leyte requires a Software Engineer as a consultant to guide the development, implementation, and maintenance of its digital systems. As government operations increasingly rely on technology, expert consultation is essential to ensure efficient, secure, and scalable digital solutions. A Software Engineer consultant can assess existing systems, recommend improvements, and oversee the integration of new technologies to streamline processes, enhance data management, and strengthen cybersecurity.  
+                           The Capitol Site of Southern Leyte requires a Software Engineer as a consultant to guide the
+                           development, implementation, and maintenance of its digital systems. As government operations
+                           increasingly rely on technology, expert consultation is essential to ensure efficient,
+                           secure, and scalable digital solutions. A Software Engineer consultant can assess existing
+                           systems, recommend improvements, and oversee the integration of new technologies to
+                           streamline processes, enhance data management, and strengthen cybersecurity.
                         </small>
                         <br><br>
                         <small>
-                           One crucial development is the Document Tracking Assistant (DoTA), a system designed to improve the efficiency of office operations by enabling seamless tracking and management of documents. This system has significantly optimized workflows, ensuring transparency, accountability, and faster processing times across various departments.                          
+                           One crucial development is the Document Tracking Assistant (DoTA), a system designed to
+                           improve the efficiency of office operations by enabling seamless tracking and management of
+                           documents. This system has significantly optimized workflows, ensuring transparency,
+                           accountability, and faster processing times across various departments.
                         </small>
                      </div>
                      <hr class="me-5">
@@ -1175,7 +1278,8 @@
                      <div class="resume-item wow fadeInRight" data-wow-delay=".5s">
                         <div class="time">2019 - 2023</div>
                         <div class="institute fw-bold">BS in Information Technology</div>
-                        <div class="institute">Southern Leyte State University - MC <br /> <b class="text-secondary">CUM LAUDE</b>
+                        <div class="institute">Southern Leyte State University - MC <br /> <b class="text-secondary">CUM
+                              LAUDE</b>
                         </div>
                      </div>
                   </div>
@@ -1258,7 +1362,7 @@
                      <hr class="border border-white">
                      <ul>
                         <li><a class="" href="#intro">About Me</a></li>
-                        <li><a class="" href="#skills-section">Tech Stacks</a></li>
+                        <li><a class="" href="#skills-section">Skills</a></li>
                         <li><a class="" href="#works-section">Projects</a></li>
                         <li><a class="" href="#commission-section">Commissions</a></li>
                         <li><a class="" href="#services-section">Services</a></li>
